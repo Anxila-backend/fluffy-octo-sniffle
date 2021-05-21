@@ -1,0 +1,271 @@
+#include <iostream>
+#include<windows.h>
+using namespace std;
+
+double bill=0;
+
+class PatientAccount
+{
+private:
+
+    int days;
+public:
+    void checkout()
+    {
+    	if (bill!=0)
+		{
+			int x;
+			cout<<"\nEnter days spend in the hosppital :";
+    		cin>>days;
+    		x = days*100;
+    		cout<<"\n Your Total bill is :"<<bill+x<<endl;
+   	 	}
+    	else
+    	{
+    		cout<<"You did not recieve any medical treatment yet ";
+    		exit(0);
+		}
+    	
+	}
+
+};
+
+class Surgery
+{
+    public: 
+        int Arm_Surgery=66, Hip_Surgery=23, Neck_Surgery=55, Leg_Surgery=99, Stomach_Surgery=65;
+		
+
+    public:
+      
+        void getArm_Surgery()
+        {
+        	Arm_Surgery=66;
+        	bill= bill+88;
+		}
+		
+        void getHip_Surgery()
+        {
+        	bill= bill+Hip_Surgery;
+		}
+		
+        void getNeck_Surgery()
+        {
+        	bill= bill+Neck_Surgery;
+		}
+		
+        void getLeg_Surgery()
+        {
+        	bill= bill+Leg_Surgery;
+		}
+		
+        void getStomach_Surgery()
+        {
+        	bill= bill+Stomach_Surgery;
+		}
+		
+		void display()
+		{
+			cout<<"\n***********    Charges List    ************";
+			cout<<"\n1: Arm Surgery      :  "<<Arm_Surgery;
+			cout<<"\n2: Hip Surgery      :  "<<Hip_Surgery;
+			cout<<"\n3: Neck Surgery     :  "<<Neck_Surgery;
+			cout<<"\n4: Leg Surgery      :  "<<Leg_Surgery;
+			cout<<"\n5:	Stomach Surgery  :  "<<Stomach_Surgery<<endl;
+			system("pause");
+			system("CLS");
+		}
+		
+        
+};
+
+class Pharmacy
+{
+	public:
+		int paracetamol=34, vitamin=66, painKillers=98, aminoAcid=34, stemCells=55;
+		
+	public:
+	
+		double getParacetamol()
+		{
+        	bill= bill+paracetamol;
+		}
+		
+		double getVitamins()
+		{
+        	bill= bill+vitamin;
+		}
+		
+		double getPainkillers()
+		{
+        	bill= bill+painKillers;
+		}
+		
+		double getAminoAcid()
+		{
+        	bill= bill+aminoAcid;
+		}
+		
+		double getStemcells()
+		{
+        	bill= bill+stemCells;
+		}
+		
+		void display()
+		{
+			cout<<"\n***********    Charges List    ************";
+			cout<<"\n1: Paracetamol  :  "<<paracetamol;
+			cout<<"\n2: Vitamin      :  "<<vitamin;
+			cout<<"\n3: Pain Killers :  "<<painKillers;
+			cout<<"\n4: Amino Acid   :  "<<aminoAcid;
+			cout<<"\n5: Stem Cells   :  "<<stemCells;
+			system("pause");
+			system("CLS");
+		}
+		
+		
+};
+
+
+
+
+int main ()
+{
+
+	Surgery su ;
+	Pharmacy ph ;
+	PatientAccount pa;
+	
+	for (int i=0;i<=58;i++)
+	{
+		cout<<"**";
+		Sleep(10);
+	}
+	cout<<"\n\n\t\t\t\t\t\tMAIN MENU\t\t\t\n\n";
+	for (int i=0;i<=58;i++)
+	{
+		cout<<"**";
+		Sleep(10);
+	}
+	int option;
+	main:
+	
+	system("CLS");	
+	cout<<"\n\n\n1: MEDITATION";
+	cout<<"\n2: SURGERY";
+	cout<<"\n3: Display Meditation Charges List";
+	cout<<"\n4: Display Surgery Charges List";
+	cout<<"\n5: CHECKOUT";
+	cout<<"\n0: EXIT\n";
+	cin>>option;
+	if (option==1)
+	{
+		int op;
+		cout<<"\n1: Get Paracetamol";
+		cout<<"\n2: Get Vitamins";
+		cout<<"\n3: Get Painkillers";
+		cout<<"\n4: Get AminoAcid";
+		cout<<"\n5: Get Stemcells\n";
+		cin>>op;
+		if(op==1)
+		{
+			ph.getParacetamol();
+			goto main;
+		}
+		else if(op==2)
+		{
+			double getVitamins();
+			goto main;
+		}
+		else if(op==3)
+		{
+			double getPainkillers();
+			goto main;
+		}
+		else if(op==4)
+		{
+			double getAminoAcid();
+			goto main;
+		}
+		else if(op==5)
+		{
+			double getStemcells();
+			goto main;
+		}
+		else 
+		cout<<"\nINVALID INPUT";
+		system("pause");
+		goto main;
+		
+	}
+	else if (option==2)
+	{
+		int op;
+        cout<<"\n1: Get Arm Surgery";
+        cout<<"\n2: Get Hip Surgery";
+        cout<<"\n3: Get Neck Surgery";
+        cout<<"\n4: Get Leg Surgery";
+        cout<<"\n5: Get Stomach Surgery\n";
+		cin>>op;
+		
+		if(op==1)
+		{
+			double getArm_Surgery();
+			goto main;
+	       	
+		}
+		else if(op==2)
+		{
+			 double getHip_Surgery();
+			 goto main;
+		}
+		else if(op==3)
+		{
+			double getNeck_Surgery();
+			goto main;
+		}	
+		else if(op==4)
+		{
+			double getLeg_Surgery();
+			goto main;
+	        
+		}
+		else if(op==5)
+		{
+			double getStomach_Surgery();
+			goto main;
+		}
+		else 
+		cout<<"\nINVALID INPUT";
+		system("pause");
+		goto main;
+		
+	}
+	else if (option==3)
+	{
+		ph.display();
+		system("pause");
+		goto main;
+	}
+	else if (option==4)
+	{
+		su.display();
+		system("pause");
+		goto main;
+		
+	}
+	else if (option==5)
+	{
+		pa.checkout();
+		system("pause");
+		
+		
+	}
+	else if (option==0)
+	{
+		exit(0);
+	}
+
+	return 0;
+	
+}
